@@ -3,7 +3,7 @@
 name := "option3" //
 organization := "com.github.tallamjr"
 version := "0.1"
-scalaVersion := "2.12.0"
+scalaVersion := "2.11.0"
 
 // Spark Information
 val sparkVersion = "2.4.5"
