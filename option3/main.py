@@ -68,8 +68,10 @@ for seconds in range(10):
       SELECT *
       FROM tweets_data
       """)\
-      .show(5, truncate=False)
+      .show(5)
     time.sleep(2)
+
+print(type(spark.sql(""" SELECT * FROM tweets_data """)))
 
 streamQuery.stop()
 # streamQuery.awaitTermination()
