@@ -1,5 +1,7 @@
 # Data
 data/
+metastore_db
+derby*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
