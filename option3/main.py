@@ -1,5 +1,7 @@
 import os
+import time
 from pyspark.sql import SparkSession
+from pyspark.sql.types import *
 from pyspark.sql.functions import from_json, col
 
 
@@ -40,3 +42,34 @@ df = spark \
 
 
 df.printSchema()
+
+topicSchema = StructType() \
+                .add("schema", StringType()) \
+                .add("payload", StringType())
+
+
+tweets = df.select(col("key").cast("string"),
+            from_json(col("value").cast("string"), topicSchema))
+
+print(type(tweets))
+
+streamQuery = tweets.writeStream\
+                    .format("memory")\
+                    .queryName("tweets_data")\
+                    .outputMode("append")\
+                    .start()
+
+
+print(streamQuery.isActive)
+
+for seconds in range(10):
+    print("Refreshing....")
+    spark.sql("""
+      SELECT *
+      FROM tweets_data
+      """)\
+      .show(5, truncate=False)
+    time.sleep(2)
+
+streamQuery.stop()
+# streamQuery.awaitTermination()
