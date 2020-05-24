@@ -31,3 +31,12 @@ df = spark.read.format("csv") \
 
 df.show(5)
 
+df = spark \
+    .readStream \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", "localhost:9092") \
+    .option("subscribe", "twitter_status_connect") \
+    .load()
+
+
+df.printSchema()
