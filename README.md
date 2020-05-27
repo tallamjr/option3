@@ -10,6 +10,37 @@
     #                                              #
     ################################################
 
+# OPT + 3 = \#
+
+`option3` is a proof of concept application that will be used to improve my understanding of using
+Kafka and Spark for developing machine learning data pipelines. Inspired by Stephane Maarek's [Kafka
+for Beginners](https://www.linkedin.com/learning/learn-apache-kafka-for-beginners) course, I hope to
+connect to the Twitter stream of tweets, apply some filtering and transformations, and finally
+visualise the processed data.
+
+## Engineering Plan
+
+The idea of this project is to ingest the Twitter stream and push this to a kafka topic (producer),
+then use KafkaStream's API to do some kind of filtering and push this filtered stream to a new
+topic.  Then, I would like to use Spark Structured Streaming to read this filtered stream and do
+some transformations/process each row into a new Spark DataFrame. Finally, I would like to use
+Plotly to visualise the location of the tweet on a map of London, with the text of the tweet shown
+when hovering over the data point.
+
+It is hoped that building this will allow me to learn several things and develop a
+fully fledge data pipeline.
+
+![pipeline](./docs/imgs/option3-plan.svg)
+
+Technologies I hope to use and topics I hope to learn more about:
+
+* Developing a Kafka Producer.
+* Using KafkaStreams API
+* Using kakka CLI
+* Spark Structure Streaming
+* Plotly
+* Dash
+* Application deployment
 
 ## Directory Structure
 
