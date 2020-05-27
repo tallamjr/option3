@@ -30,7 +30,7 @@ when hovering over the data point.
 It is hoped that building this will allow me to learn several things and develop a
 fully fledge data pipeline.
 
-![pipeline](docs/imgs/option3-plan.png)
+<img src="docs/imgs/option3-plan.svg" alt="drawing"/>
 
 Technologies I hope to use and topics I hope to learn more about:
 
