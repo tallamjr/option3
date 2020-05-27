@@ -7,6 +7,7 @@ jupyter-console>=6.1.0
 jupyter-core>=4.6.1
 koalas>=0.32.0
 matplotlib>=3.2.1
+mkdocs
 numpy>=1.18
 pandas>=1.0
 plotly>=4.7.1
