@@ -29,9 +29,14 @@ object StreamsFilterTweets {
     // input topic
     val inputTopic: KStream[String, String] =
       streamsBuilder.stream("twitter_tweets")
+
+    // val filteredStream: KStream[String, String] = inputTopic.filter(
+    //   (k, jsonTweet) => extractUserFollowersInTweet(jsonTweet) > 10000)
+    // filteredStream.to("important_tweets")
+
     val filteredStream: KStream[String, String] = inputTopic.filter(
-      (k, jsonTweet) => extractUserFollowersInTweet(jsonTweet) > 10000)
-    filteredStream.to("important_tweets")
+      (k, jsonTweet) => extractLocationsInTweet(jsonTweet) == true)
+    filteredStream.to("geo_tweets")
     // build the topology
     val kafkaStreams: KafkaStreams =
       new KafkaStreams(streamsBuilder.build(), properties)
@@ -52,7 +57,28 @@ object StreamsFilterTweets {
         .getAsInt
         catch {
           case e: NullPointerException => 0
-
         }
 
+  private def extractLocationsInTweet(
+    tweetJson: String): java.lang.Boolean = // gson library
+      if (
+          !jsonParser
+          .parse(tweetJson)
+          .getAsJsonObject
+          .get("geo")
+          .isJsonNull()
+        ) {
+        try jsonParser
+          .parse(tweetJson)
+          .getAsJsonObject
+          .get("user")
+          .getAsJsonObject
+          .get("geo_enabled")
+          .getAsBoolean
+          catch {
+            case e: NullPointerException => false
+          }
+        } else {
+          false
+        }
 }
