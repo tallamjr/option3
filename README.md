@@ -12,11 +12,11 @@
 
 # OPT + 3 = \#
 
-`option3` is a proof of concept application that will be used to improve my understanding of using
+`option3` is a proof of concept application that is being used to improve my understanding of
 Kafka and Spark for developing machine learning data pipelines. Inspired by Stephane Maarek's [Kafka
 for Beginners](https://www.linkedin.com/learning/learn-apache-kafka-for-beginners) course, I hope to
 connect to the Twitter stream of tweets, apply some filtering and transformations, and finally
-visualise the processed data.
+visualise, in real-time, the processed data.
 
 ## Engineering Plan
 
