@@ -46,23 +46,32 @@ Technologies I hope to use and topics I hope to learn more about:
 
 ```bash
 .
-├── LICENSE
+├── LICENSE                             # Apache 2.0 LICENSE
 ├── README.md
-├── bin
-├── build.sbt
+├── bin -> target/universal/stage/bin   # Symlink to binaries
+├── build
+├── build.sbt                           # SBT build
+├── conf                                # Configuration files
 ├── data
-├── environment.yml
-├── libs
-├── notebooks
+├── docker                              # Docker-compose files
+├── docs
+├── environment.yml                     # Anaconda environment
+├── lib -> target/universal/stage/lib   # Symlink to compiled library JARs
+├── libs                                # Additional JARs
+├── mkdocs.yml
+├── notebooks                           # Jupyter notebooks
+├── option3                             # Python module
+├── package                             # Script to build and package option3 with SBT
 ├── project
-├── pytest.ini
+├── pytest.ini                          # Pytest configuration
 ├── requirements.txt
-├── sbin
+├── sbin                                # Helper development scripts
 ├── setup.py
-├── option3
-├── src
+├── spark-warehouse
+├── src                                 # Scala source code
 └── target
 
+15 directories, 9 files
 ```
 
 ## Installation and Development
