@@ -88,3 +88,13 @@ dockerBaseImage := "java:8-jre"
 dockerExposedPorts := Seq(9000)
 //exposed volumes
 dockerExposedVolumes := Seq("/opt/docker/logs")
+
+Compile / unmanagedJars ++= {
+val base = baseDirectory.value
+val baseDirectories = (base / "libs" / "connectors" / "kafka-connect-twitter")
+val customJars = (baseDirectories ** "*.jar")
+customJars.classpath
+}
+
+// import NativePackagerHelper._
+// mappings in Universal ++= directory("sbin")
