@@ -1,0 +1,3 @@
+#!/bin/bash
+
+spark-submit --packages {$PACKAGES} {$OPTION3_HOME}/option3/main.py
