@@ -91,7 +91,7 @@ dockerExposedVolumes := Seq("/opt/docker/logs")
 
 Compile / unmanagedJars ++= {
 val base = baseDirectory.value
-val baseDirectories = (base / "libs" / "connectors" / "kafka-connect-twitter")
+val baseDirectories = (base / "libexec" / "connectors" / "kafka-connect-twitter")
 val customJars = (baseDirectories ** "*.jar")
 customJars.classpath
 }
