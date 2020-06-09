@@ -36,7 +36,7 @@ Technologies I hope to use and topics I hope to learn more about:
 
 * Developing a Kafka Producer.
 * Using KafkaStreams API
-* Using kakka CLI
+* Using Kafka CLI
 * Spark Structure Streaming
 * Plotly
 * Dash
