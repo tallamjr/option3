@@ -1,7 +1,12 @@
 // Package Information
 name := "option3" //
 organization := "com.github.tallamjr"
-version := "0.1"
+
+enablePlugins(GitVersioning, GitBranchPrompt)
+git.baseVersion := "1.0"
+git.useGitDescribe := true
+git.formattedShaVersion := git.gitHeadCommit.value map { sha => "v"+git.baseVersion.value+"-"+sha.take(7) }
+
 /* scalaVersion := "2.11.0" */
 autoScalaLibrary := true // false = exclude scala-library from dependencies
 
