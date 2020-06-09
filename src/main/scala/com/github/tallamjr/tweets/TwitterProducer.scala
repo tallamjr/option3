@@ -48,7 +48,7 @@ class ScTwitterProducer {
   var token: String = sys.env.getOrElse("ACCESSTOKEN", "UNKNOWN")
   var secret: String = sys.env.getOrElse("ACCESSTOKENSECRET", "UNKNOWN")
 
-  var terms: List[String] = Lists.newArrayList("scala", "spark", "bitcoin", "brexit", "cummings")
+  var terms: List[String] = Lists.newArrayList("london")
 
   def run(): Unit = {
     logger.info("Setup")
