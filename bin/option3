@@ -20,4 +20,4 @@ source $CONF
 
 spark-submit --master "${SPARK_MASTER}" \
     --packages ${OPTION3_PACKAGES} \
-    $OPTION3_HOME/option3/main.py
+    $OPTION3_HOME/option3/stream_processor.py
