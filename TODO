@@ -1,0 +1,13 @@
+# TODO
+
+1. Move code from notebooks into option3/main.py
+    * Complete bin/option3 file
+2. Build into Dash app, deploy locally, watch live
+3. Include documentation for Python + Scala code
+4. Have tests of the dataframe and schema
+5. Be able to run python, scala, spark tests from sbin/test file
+6. Incoporate the above into a github action CI workflow
+7. Be able to deploy remotely
+8. Make CI-->CD pipeline, build docker image etc. Amazon EMR?
+9. Launch website, run in production.
+10. Seetup OSS project files, CONTRIBUTING.md, STYLEGUIDE.md etc.
