@@ -66,7 +66,7 @@ def logLevel(spark):
 
     Notes
     -----
-    REF: https://stackoverflow.com/questions/25193488/how-to-turn-off-info-logging-in-spark
+    Ref : https://stackoverflow.com/questions/25193488/how-to-turn-off-info-logging-in-spark
 
     Examples
     ----------
