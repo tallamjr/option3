@@ -241,3 +241,9 @@ Useful blog posts or online material that can be referenced for this project
     https://aws.amazon.com/blogs/big-data/real-time-stream-processing-using-apache-spark-streaming-and-apache-kafka-on-aws/
 * Building a real-time prediction pipeline using Spark Structured Streaming and Microservices
     https://towardsdatascience.com/building-a-real-time-prediction-pipeline-using-spark-structured-streaming-and-microservices-626dc20899eb
+* Testing Spark Applications
+    https://medium.com/@mrpowers/testing-spark-applications-8c590d3215fa
+* Designing Easily Testable Spark Code
+    https://medium.com/@mrpowers/designing-easily-testable-spark-code-df0755ef00a4
+* LEARN PLOTLY: YouTube PLAYLIST
+    https://www.youtube.com/playlist?list=PLE50-dh6JzC4onX-qkv9H3HtPbBVA8M94
