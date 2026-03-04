@@ -1,0 +1,27 @@
+[project]
+name = "option3-transform"
+version = "0.1.0"
+description = "Wikimedia event stream transformer using Polars"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "polars>=1.0",
+    "confluent-kafka>=2.3",
+    "click>=8.1",
+    "structlog>=24.1",
+]
+
+[project.scripts]
+option3-transform = "transform.__main__:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
