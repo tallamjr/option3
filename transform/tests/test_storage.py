@@ -6,34 +6,50 @@ import polars as pl
 from transform.processor import events_to_dataframe
 from transform.storage import read_all_parquet, write_batch_to_parquet
 
+# Real events captured from the live Wikimedia EventStreams SSE endpoint
+# https://stream.wikimedia.org/v2/stream/recentchange on 2026-03-04
 SAMPLE_EVENTS = [
     {
-        "id": 2001,
+        "id": 2002470984,
         "type": "edit",
         "wiki": "enwiki",
-        "title": "Test Article",
-        "user": "TestUser",
+        "title": "March 7",
+        "user": "PontiffSulivahn",
         "bot": False,
         "minor": False,
-        "comment": "Test edit",
-        "timestamp": 1709500100,
+        "comment": "Added entries + added references",
+        "timestamp": 1772660481,
         "server_name": "en.wikipedia.org",
         "namespace": 0,
-        "length": {"old": 1000, "new": 1100},
+        "length": {"old": 80518, "new": 81143},
     },
     {
-        "id": 2002,
-        "type": "new",
+        "id": 2545870133,
+        "type": "edit",
         "wiki": "wikidatawiki",
-        "title": "Q999999999",
-        "user": "AnotherUser",
-        "bot": False,
+        "title": "Q20060181",
+        "user": "KrBot",
+        "bot": True,
         "minor": False,
-        "comment": "Created item",
-        "timestamp": 1709500200,
+        "comment": "/* wbsetreference-set:2| */ [[Property:P685]]: 878061",
+        "timestamp": 1772660485,
         "server_name": "www.wikidata.org",
         "namespace": 0,
-        "length": {"old": None, "new": 300},
+        "length": {"old": 25171, "new": 25171},
+    },
+    {
+        "id": 3221685413,
+        "type": "new",
+        "wiki": "commonswiki",
+        "title": "Category:October 2009 at Sheremetyevo International Airport",
+        "user": "Ardfern",
+        "bot": False,
+        "minor": False,
+        "comment": "cat added",
+        "timestamp": 1772660485,
+        "server_name": "commons.wikimedia.org",
+        "namespace": 14,
+        "length": {"old": None, "new": 142},
     },
 ]
 
@@ -52,7 +68,7 @@ def test_write_batch_contents_roundtrip():
     with tempfile.TemporaryDirectory() as tmpdir:
         write_batch_to_parquet(df, tmpdir)
         loaded = read_all_parquet(tmpdir)
-        assert loaded.height == 2
+        assert loaded.height == 3
         assert set(loaded.columns) == set(df.columns)
 
 
@@ -76,4 +92,4 @@ def test_read_all_parquet_multiple_files():
         write_batch_to_parquet(df, tmpdir)
 
         combined = read_all_parquet(tmpdir)
-        assert combined.height == 4
+        assert combined.height == 6

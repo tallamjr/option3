@@ -289,7 +289,20 @@ uv pip install -e ".[dev]"
 
 ## Testing
 
-The project has 16 tests across Rust and Python:
+Run the full test suite locally (no Docker or network access required):
+
+```bash
+# Run everything in one go
+just ci
+
+# Or run Rust and Python tests individually
+just test           # 6 Rust integration tests
+just pytest         # 10 Python tests
+```
+
+The Python tests require the virtual environment to be set up first (see Python Environment Setup above).
+
+### What is tested
 
 **Rust integration tests** (`crates/common/tests/integration_test.rs`):
 - WikiEvent deserialisation from realistic JSON (edit and log event types)
@@ -300,7 +313,7 @@ The project has 16 tests across Rust and Python:
 - `test_processor.py` -- DataFrame creation, edits_by_wiki aggregation, top_editors ranking, activity_by_type grouping
 - `test_storage.py` -- Parquet write, roundtrip read, directory creation, multi-file scan
 
-All test fixtures use data that mirrors real Wikimedia recentchange events.
+All test fixtures use data that mirrors real Wikimedia recentchange events. No running services (RedPanda, network) are needed -- the tests exercise the data models, transformations, and storage logic in isolation.
 
 ## Licence
 
