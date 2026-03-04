@@ -1,2 +1,0 @@
-#!/bin/bash
-sbt clean compile package stage
